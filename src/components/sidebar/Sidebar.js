@@ -46,9 +46,9 @@ const Sidebar = () => {
       </li>
 
       <hr />
-        Subscriptions
+      {/* Subscriptions
         <hr/>
-        MORE FROM YOUTUBE
+        MORE FROM YOUTUBE */}
       <li>
         <MdExitToApp size={23} />
         <span>Log Out</span>
