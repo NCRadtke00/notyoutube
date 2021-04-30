@@ -8,7 +8,7 @@ const HomeScreen = () => {
     <Container>
       <CategoriesBar />
       <Row>
-        {[...new Array(20)].map(() => (
+        {[...new Array(21)].map(() => (
           <Col Lg={3} md={4}>
             <Video />
           </Col>
