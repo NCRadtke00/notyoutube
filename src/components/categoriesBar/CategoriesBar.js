@@ -1,11 +1,7 @@
-import React from 'react'
-import './_categories.scss';
+import React from "react";
+import "./_categoriesBar.scss";
 const CategoriesBar = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div></div>;
+};
 
-export default CategoriesBar
+export default CategoriesBar;

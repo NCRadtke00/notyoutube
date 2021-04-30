@@ -2,7 +2,7 @@ import React from "react";
 import './_header.scss';
 
 const Header = () => {
-  return <div>Header</div>;
+  return <div className="border border-dark"></div>
 };
 
 export default Header;
