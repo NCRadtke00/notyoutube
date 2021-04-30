@@ -10,9 +10,12 @@ import {
   MdHome,
   MdWatchLater,
 } from "react-icons/md";
-const Sidebar = () => {
+const Sidebar = ({ sidebar, handleToggleSidebar }) => {
   return (
-    <nav className="sidebar">
+    <nav
+      className={sidebar ? "sidebar open" : "sidebar"}
+      onClick={() => handleToggleSidebar(false)}
+    >
       <li>
         <MdHome size={23} />
         <span>Home</span>
