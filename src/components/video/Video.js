@@ -11,9 +11,9 @@ const Video = () => {
       <div className="video__title">Create app now with me nick</div>
       <div className="video__details">
         <span>
-          <AiFillEye /> Sm Views{" "}
+          <AiFillEye /> Views • {' '} 
         </span>
-        <span>5 days ago</span>
+        <span> 5 days ago</span>
       </div>
       <div className="video__channel">
         <img src="" alt="" />
