@@ -5,26 +5,47 @@ import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import HomeScreen from "./screens/homescreen/HomeScreen";
 import LoginScreen from "./screens/loginScreen/LoginScreen";
+
+import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+
 import "./_app.scss";
 
-const App = () => {
+const Layout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
 
   const handleToggleSidebar = () => toggleSidebar((value) => !value);
-  const Layout =()=> {
-    
-  }
   return (
     <>
-    <LoginScreen/>
       <Header handleToggle={handleToggleSidebar} />
       <div className="app__container">
         <Sidebar sidebar={sidebar} handleToggleSidebar={handleToggleSidebar} />
-        <Container fluid className="app__main border border-warning">
-          <HomeScreen />
+        <Container fluid className="app__main">
+          {children}
         </Container>
       </div>
     </>
+  );
+};
+
+const App = () => {
+  return (
+    <Switch>
+      <Route path="/" exact>
+        <Layout>
+          <HomeScreen />
+        </Layout>
+      </Route>
+
+      <Route path="/auth">
+        <LoginScreen />
+      </Route>
+      
+      <Route path="/search/:query">
+        <Layout>
+          <SearchScreen />
+        </Layout>
+      </Route>
+    </Switch>
   );
 };
 
