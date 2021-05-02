@@ -1,27 +1,27 @@
 import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-// import { login } from "../../redux/actions/auth.action";
+import { login } from "../../redux/actions/auth.action";
 import "./loginScreen.scss";
 
 const LoginScreen = () => {
-  //   const dispatch = useDispatch();
-  //   const handleLogin = () => {
-  //     dispatch(login());
-  //   };
-  //   const accessToken = useSelector((state) => state.auth.accessToken);
-  //   const history = useHistory();
-  //   useEffect(() => {
-  //     if (accessToken) {
-  //       history.push("/");
-  //     }
-  //   }, [accessToken, history]);
+    const dispatch = useDispatch();
+    const handleLogin = () => {
+      dispatch(login());
+    };
+    const accessToken = useSelector((state) => state.auth.accessToken);
+    const history = useHistory();
+    useEffect(() => {
+      if (accessToken) {
+        history.push("/");
+      }
+    }, [accessToken, history]);
   return (
     <div className="login">
       <div className="login__container">
         <img src="https://pngimg.com/uploads/youtube/youtube_PNG2.png" alt="" />
         <button>Login with Google</button>
-        {/* onClick={handleLogin}  */}
+        onClick={handleLogin} 
         <p>
           This Project was made possible with React, Redux, Youtube API, SCSS,
           Axios and Firebase!
