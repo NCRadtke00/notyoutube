@@ -58,7 +58,27 @@ const App = () => {
           <SearchScreen />
         </Layout>
       </Route>
-    </Router>
+      <Route path="/watch/:id">
+        <Layout>
+          <WatchScreen />
+        </Layout>
+      </Route>
+
+      <Route path="/feed/subscriptions">
+        <Layout>
+          <SubscriptionsScreen />
+        </Layout>
+      </Route>
+      <Route path="/channel/:channelId">
+        <Layout>
+          <ChannelScreen />
+        </Layout>
+      </Route>
+
+      <Route>
+        <Redirect to="/" />
+      </Route>
+    </Switch>
   );
 };
 
