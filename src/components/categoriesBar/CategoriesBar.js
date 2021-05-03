@@ -32,9 +32,7 @@ const keywords = [
 
 const CategoriesBar = () => {
   const [activeElement, setActiveElement] = useState("All");
-
   const dispatch = useDispatch();
-
   const handleClick = (value) => {
     setActiveElement(value);
     if (value === "All") {
