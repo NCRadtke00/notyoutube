@@ -1,11 +1,8 @@
-import React from 'react'
+import React from "react";
+import "./_videoHorizontal.scss";
 
-function VideoHorizontal() {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+const VideoHorizontal = ({ video }) => {
+  return <div>video</div>;
+};
 
-export default VideoHorizontal
+export default VideoHorizontal;
