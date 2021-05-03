@@ -5,11 +5,12 @@ import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
 import HomeScreen from "./screens/homescreen/HomeScreen";
 import LoginScreen from "./screens/loginScreen/LoginScreen";
-
+import { BrowserRouter as Router } from "react-router-dom";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
 
 import "./_app.scss";
-
+import { useSelector } from "react-redux";
+import SearchScreen from "./screens/SearchScreen";
 const Layout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
 
@@ -29,7 +30,7 @@ const Layout = ({ children }) => {
 
 const App = () => {
   return (
-    <Switch>
+    <Router>
       <Route path="/" exact>
         <Layout>
           <HomeScreen />
@@ -39,13 +40,13 @@ const App = () => {
       <Route path="/auth">
         <LoginScreen />
       </Route>
-      
+
       <Route path="/search/:query">
         <Layout>
           <SearchScreen />
         </Layout>
       </Route>
-    </Switch>
+    </Router>
   );
 };
 
