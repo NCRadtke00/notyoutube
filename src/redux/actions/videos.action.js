@@ -61,6 +61,33 @@ export const getRelatedVideos = (id) => async (dispatch) => {
     });
   }
 };
+export const getSubscribedChannels = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: SUBSCRIPTIONS_CHANNEL_REQUEST,
+    });
+    const { data } = await request("/subscriptions", {
+      params: {
+        part: "snippet,contentDetails",
+
+        mine: true,
+      },
+      headers: {
+        Authorization: `Bearer ${getState().auth.accessToken}`,
+      },
+    });
+    dispatch({
+      type: SUBSCRIPTIONS_CHANNEL_SUCCESS,
+      payload: data.items,
+    });
+  } catch (error) {
+    console.log(error.response.data);
+    dispatch({
+      type: SUBSCRIPTIONS_CHANNEL_FAIL,
+      payload: error.response.data,
+    });
+  }
+};
 export const getVideosByCategory = (keyword) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -88,6 +115,43 @@ export const getVideosByCategory = (keyword) => async (dispatch, getState) => {
     dispatch({
       type: HOME_VIDEOS_FAIL,
       payload: error.message,
+    });
+  }
+};
+export const getVideosByChannel = (id) => async (dispatch) => {
+  try {
+    dispatch({
+      type: CHANNEL_VIDEOS_REQUEST,
+    });
+
+    // 1. get upload playlist id
+    const {
+      data: { items },
+    } = await request("/channels", {
+      params: {
+        part: "contentDetails",
+        id: id,
+      },
+    });
+    const uploadPlaylistId = items[0].contentDetails.relatedPlaylists.uploads;
+    // 2. get the videos using the id
+    const { data } = await request("/playlistItems", {
+      params: {
+        part: "snippet,contentDetails",
+        playlistId: uploadPlaylistId,
+        maxResults: 30,
+      },
+    });
+
+    dispatch({
+      type: CHANNEL_VIDEOS_SUCCESS,
+      payload: data.items,
+    });
+  } catch (error) {
+    console.log(error.response.data.message);
+    dispatch({
+      type: CHANNEL_DETAILS_FAIL,
+      payload: error.response.data,
     });
   }
 };
