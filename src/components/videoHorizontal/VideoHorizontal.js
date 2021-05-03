@@ -29,7 +29,32 @@ const VideoHorizontal = ({ video }) => {
           <span className="videoHorizontal__duration">{_duration}</span>
         )}
       </Col>
-      <Col></Col>
+      <Col
+        xs={6}
+        md={searchScreen || subScreen ? 8 : 6}
+        className="p-0 videoHorizontal__right"
+      >
+        <p className="mb-1 videoHorizontal__title">{title}</p>
+
+        {isVideo && (
+          <div className="videoHorizontal__details">
+            <AiFillEye /> {numeral(views).format("0.a")} Views •
+            {moment(publishedAt).fromNow()}
+          </div>
+        )}
+
+        {(searchScreen || subScreen) && (
+          <p className="mt-1 videoHorizontal__desc">{description}</p>
+        )}
+
+        <div className="my-1 videoHorizontal__channel d-flex align-items-center">
+          {isVideo && <LazyLoadImage src={channelIcon?.url} effect="blur" />}
+          <p className="mb-0">{channelTitle}</p>
+        </div>
+        {subScreen && (
+          <p className="mt-2">{video.contentDetails.totalItemCount} Videos</p>
+        )}
+      </Col>
     </Row>
   );
 };
