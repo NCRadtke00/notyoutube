@@ -7,7 +7,14 @@ import { getSubscribedChannels } from "../../redux/actions/videos.action";
 import "./subscriptions.scss";
 
 const SubscriptionScreen = () => {
-
+  const { query } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getVideosBySearch(query));
+  }, [query, dispatch]);
+  const { loading, videos } = useSelector(
+    (state) => state.subscriptionsChannel
+  );
 
   return (
     <Container fluid>
