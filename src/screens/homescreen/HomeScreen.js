@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Col, Container } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import SkeletonVideo from "../../components/skeletons/SkeletonVideo";
 import Video from "../../components/video/Video";
 import CategoriesBar from "../../components/categoriesbar/CategoriesBar";
-import { useDispatch, useSelector } from "react-redux";
 import {
   getPopularVideos,
   getVideosByCategory,
 } from "../../redux/actions/videos.action";
-import InfiniteScroll from "react-infinite-scroll-component";
-import SkeletonVideo from "../../components/skeletons/SkeletonVideo";
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
