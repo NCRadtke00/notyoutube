@@ -10,20 +10,41 @@ import { getVideosByChannel } from "../../redux/actions/videos.action";
 import "./channelScreen.scss";
 
 const ChannelScreen = () => {
+  return (
+    <>
+      <div className="px-5 py-2 my-2 d-flex justify-content-between align-items-center channelHeader">
+        <div className="d-flex align-items-center">
+          <img src={snippet?.thumbnails?.default?.url} alt="" />
 
-  return(
-    <div className="channelHeader">
-        <div className="d-flex">
-            <img src="" alt=""/>
-            <div className="channelHeader__deatails">
-                <h3></h3>
-                <span></span>
-            </div>
+          <div className="ml-3 channelHeader__details">
+            <h3>{snippet?.title}</h3>
+            <span>
+              {numeral(statistics?.subscriberCount).format("0.a")} subscribers
+            </span>
+          </div>
         </div>
+
         <button>Subscribe</button>
-    </div>
-    //copy and past container>row>Col>video
-  ) 
-}
+      </div>
+      <Container>
+        <Row className="mt-2">
+          {!loading
+            ? videos?.map((video) => (
+                <Col md={3} lg={3}>
+                  <Video video={video} channelScreen />
+                </Col>
+              ))
+            : [...Array(15)].map(() => (
+                <Col md={3} lg={3}>
+                  <SkeletonTheme color="#343a40" highlightColor="#3c4147">
+                    <Skeleton width="100%" height="140px" />
+                  </SkeletonTheme>
+                </Col>
+              ))}
+        </Row>
+      </Container>
+    </>
+  );
+};
 
 export default ChannelScreen;
