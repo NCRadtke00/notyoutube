@@ -1,5 +1,6 @@
 import React from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+
 function SkeletonVideo() {
   return (
     <div style={{ width: "100%", margin: "1rem 0" }}>

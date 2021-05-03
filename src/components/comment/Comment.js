@@ -2,7 +2,14 @@ import React from "react";
 import moment from "moment";
 import "./_comment.scss";
 
-function Comment() {
+const Comment = ({ comment }) => {
+  const {
+    authorDisplayName,
+    authorProfileImageUrl,
+    publishedAt,
+    textDisplay,
+  } = comment;
+
   return (
     <div className="p-2 comment d-flex">
       <img src={authorProfileImageUrl} alt="" className="mr-3 rounded-circle" />
@@ -14,6 +21,6 @@ function Comment() {
       </div>
     </div>
   );
-}
+};
 
 export default Comment;

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./_video.scss";
-import { AiFillEye } from "react-icons/ai";
-import request from "../../api";
+import { useHistory } from "react-router-dom";
 import moment from "moment";
 import numeral from "numeral";
-import { useHistory } from "react-router-dom";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { AiFillEye } from "react-icons/ai";
+import request from "../../api";
+import "./_video.scss";
 
 const Video = ({ video, channelScreen }) => {
   const {

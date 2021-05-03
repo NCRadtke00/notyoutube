@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import "./_header.scss";
-
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications, MdApps } from "react-icons/md";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import "./_header.scss";
 
 const Header = ({ handleToggleSidebar }) => {
   const [input, setInput] = useState("");

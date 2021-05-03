@@ -1,5 +1,6 @@
 import React from "react";
-import "./_sidebar.scss";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   MdSubscriptions,
   MdExplore,
@@ -10,9 +11,8 @@ import {
   MdHome,
   MdWatchLater,
 } from "react-icons/md";
-import { useDispatch } from "react-redux";
 import { log_out } from "../../redux/actions/auth.action";
-import { Link } from "react-router-dom";
+import "./_sidebar.scss";
 
 const Sidebar = ({ sidebar, handleToggleSidebar }) => {
   const dispatch = useDispatch();
