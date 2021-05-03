@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  addComment,
+  getCommentsOfVideoById,
+} from "../../redux/actions/comments.action";
 import Comment from "../comment/Comment";
 import "./_comments.scss";
+
 const Comments = ({ videoId, totalComments }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCommentsOfVideoById(videoId));
   }, [videoId, dispatch]);
+
+  const comments = useSelector((state) => state.commentList.comments);
+  const { photoURL } = useSelector((state) => state.auth?.user);
+
+  const [text, setText] = useState("");
+
+  const _comments = comments?.map(
+    (comment) => comment.snippet.topLevelComment.snippet
+  );
 
   const handleComment = (e) => {
     e.preventDefault();
