@@ -6,10 +6,10 @@ import "./loginScreen.scss";
 
 const LoginScreen = () => {
   const dispatch = useDispatch();
+  const accessToken = useSelector((state) => state.auth.accessToken);
   const handleLogin = () => {
     dispatch(login());
   };
-  const accessToken = useSelector((state) => state.auth.accessToken);
   const history = useHistory();
   useEffect(() => {
     if (accessToken) {
