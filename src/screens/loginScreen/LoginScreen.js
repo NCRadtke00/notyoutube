@@ -20,8 +20,7 @@ const LoginScreen = () => {
     <div className="login">
       <div className="login__container">
         <img src="https://pngimg.com/uploads/youtube/youtube_PNG2.png" alt="" />
-        <button>Login with Google</button>
-        onClick={handleLogin}
+        <button onClick={handleLogin}>Login with Google</button>
         <p>
           This Project was made possible with React, Redux, Youtube API, SCSS,
           Axios and Firebase!

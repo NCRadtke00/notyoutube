@@ -15,18 +15,22 @@ const HomeScreen = () => {
   useEffect(() => {
     dispatch(getPopularVideos());
   }, [dispatch]);
+
   const { videos, activeCategory, loading } = useSelector(
     (state) => state.homeVideos
   );
+
   const fetchData = () => {
     if (activeCategory === "All") dispatch(getPopularVideos());
     else {
       dispatch(getVideosByCategory(activeCategory));
     }
   };
+
   return (
     <Container>
       <CategoriesBar />
+
       <InfiniteScroll
         dataLength={videos.length}
         next={fetchData}
