@@ -1,5 +1,5 @@
 import {
-  CHANNEL_DETAILS_SUCCESS,
+  // CHANNEL_DETAILS_SUCCESS,
   CHANNEL_VIDEOS_FAIL,
   CHANNEL_VIDEOS_REQUEST,
   CHANNEL_VIDEOS_SUCCESS,
@@ -60,30 +60,32 @@ export const homeVideosReducer = (
       return state;
   }
 };
-export const channelVideosReducer = (
+
+export const selectedVideoReducer = (
   state = {
     loading: true,
-    videos: [],
+    video: null,
   },
   action
 ) => {
   const { payload, type } = action;
 
   switch (type) {
-    case CHANNEL_VIDEOS_REQUEST:
+    case SELECTED_VIDEO_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case CHANNEL_VIDEOS_SUCCESS:
+    case SELECTED_VIDEO_SUCCESS:
       return {
         ...state,
-        videos: payload,
+        video: payload,
         loading: false,
       };
-    case CHANNEL_VIDEOS_FAIL:
+    case SELECTED_VIDEO_FAIL:
       return {
         ...state,
+        video: null,
         loading: false,
         error: payload,
       };
@@ -191,31 +193,31 @@ export const subscriptionsChannelReducer = (
       return state;
   }
 };
-export const selectedVideoReducer = (
+
+export const channelVideosReducer = (
   state = {
     loading: true,
-    video: null,
+    videos: [],
   },
   action
 ) => {
   const { payload, type } = action;
 
   switch (type) {
-    case SELECTED_VIDEO_REQUEST:
+    case CHANNEL_VIDEOS_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case SELECTED_VIDEO_SUCCESS:
+    case CHANNEL_VIDEOS_SUCCESS:
       return {
         ...state,
-        video: payload,
+        videos: payload,
         loading: false,
       };
-    case SELECTED_VIDEO_FAIL:
+    case CHANNEL_VIDEOS_FAIL:
       return {
         ...state,
-        video: null,
         loading: false,
         error: payload,
       };

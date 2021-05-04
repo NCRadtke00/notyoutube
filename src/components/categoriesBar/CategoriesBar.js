@@ -31,6 +31,7 @@ const keywords = [
 
 const CategoriesBar = () => {
   const [activeElement, setActiveElement] = useState("All");
+
   const dispatch = useDispatch();
   const handleClick = (value) => {
     setActiveElement(value);
@@ -43,15 +44,15 @@ const CategoriesBar = () => {
 
   return (
     <div className="categoriesBar">
-      {keywords.map((value, i) => {
+      {keywords.map((value, i) => (
         <span
           onClick={() => handleClick(value)}
           key={i}
           className={activeElement === value ? "active" : ""}
         >
           {value}
-        </span>;
-      })}
+        </span>
+      ))}
     </div>
   );
 };
