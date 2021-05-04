@@ -5,7 +5,6 @@ import {
   getVideosByCategory,
 } from "../../redux/actions/videos.action";
 import "./_categoriesBar.scss";
-
 const keywords = [
   "All",
   "React js",
@@ -41,6 +40,7 @@ const CategoriesBar = () => {
       dispatch(getVideosByCategory(value));
     }
   };
+
   return (
     <div className="categoriesBar">
       {keywords.map((value, i) => {

@@ -25,8 +25,8 @@ export const login = () => async (dispatch) => {
       photoURL: res.additionalUserInfo.profile.picture,
     };
 
-    sessionStorage.setItem("ncr-yc-access-token", accessToken);
-    sessionStorage.setItem("ncr-ytc-user", JSON.stringify(profile));
+    sessionStorage.setItem("ytc-access-token", accessToken);
+    sessionStorage.setItem("ytc-user", JSON.stringify(profile));
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -50,6 +50,6 @@ export const log_out = () => async (dispatch) => {
     type: LOG_OUT,
   });
 
-  sessionStorage.removeItem("ncr-ytc-access-token");
-  sessionStorage.removeItem("ncr-ytc-user");
+  sessionStorage.removeItem("ytc-access-token");
+  sessionStorage.removeItem("ytc-user");
 };
