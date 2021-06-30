@@ -1,5 +1,5 @@
 import {
-  // CHANNEL_DETAILS_SUCCESS,
+  CHANNEL_DETAILS_SUCCESS,
   CHANNEL_VIDEOS_FAIL,
   CHANNEL_VIDEOS_REQUEST,
   CHANNEL_VIDEOS_SUCCESS,
@@ -25,11 +25,11 @@ export const homeVideosReducer = (
     videos: [],
     loading: false,
     nextPageToken: null,
-    activeCategory: "All",
+    activeCategory: 'All',
   },
   action
 ) => {
-  const { type, payload } = action;
+  const { type, payload } = action
 
   switch (type) {
     case HOME_VIDEOS_SUCCESS:
@@ -43,23 +43,23 @@ export const homeVideosReducer = (
         loading: false,
         nextPageToken: payload.nextPageToken,
         activeCategory: payload.category,
-      };
+      }
 
     case HOME_VIDEOS_FAIL:
       return {
         ...state,
         loading: false,
         error: payload,
-      };
+      }
     case HOME_VIDEOS_REQUEST:
       return {
         ...state,
         loading: true,
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
 export const selectedVideoReducer = (
   state = {
@@ -68,33 +68,32 @@ export const selectedVideoReducer = (
   },
   action
 ) => {
-  const { payload, type } = action;
+  const { payload, type } = action
 
   switch (type) {
     case SELECTED_VIDEO_REQUEST:
       return {
         ...state,
         loading: true,
-      };
+      }
     case SELECTED_VIDEO_SUCCESS:
       return {
         ...state,
         video: payload,
         loading: false,
-      };
+      }
     case SELECTED_VIDEO_FAIL:
       return {
         ...state,
         video: null,
         loading: false,
         error: payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
-
+}
 export const relatedVideoReducer = (
   state = {
     loading: true,
@@ -102,31 +101,31 @@ export const relatedVideoReducer = (
   },
   action
 ) => {
-  const { payload, type } = action;
+  const { payload, type } = action
 
   switch (type) {
     case RELATED_VIDEO_REQUEST:
       return {
         ...state,
         loading: true,
-      };
+      }
     case RELATED_VIDEO_SUCCESS:
       return {
         ...state,
         videos: payload,
         loading: false,
-      };
+      }
     case RELATED_VIDEO_FAIL:
       return {
         ...state,
         loading: false,
         error: payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
 export const searchedVideosReducer = (
   state = {
@@ -135,31 +134,31 @@ export const searchedVideosReducer = (
   },
   action
 ) => {
-  const { payload, type } = action;
+  const { payload, type } = action
 
   switch (type) {
     case SEARCHED_VIDEO_REQUEST:
       return {
         ...state,
         loading: true,
-      };
+      }
     case SEARCHED_VIDEO_SUCCESS:
       return {
         ...state,
         videos: payload,
         loading: false,
-      };
+      }
     case SEARCHED_VIDEO_FAIL:
       return {
         ...state,
         loading: false,
         error: payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
 export const subscriptionsChannelReducer = (
   state = {
@@ -168,31 +167,31 @@ export const subscriptionsChannelReducer = (
   },
   action
 ) => {
-  const { payload, type } = action;
+  const { payload, type } = action
 
   switch (type) {
     case SUBSCRIPTIONS_CHANNEL_REQUEST:
       return {
         ...state,
         loading: true,
-      };
+      }
     case SUBSCRIPTIONS_CHANNEL_SUCCESS:
       return {
         ...state,
         videos: payload,
         loading: false,
-      };
+      }
     case SUBSCRIPTIONS_CHANNEL_FAIL:
       return {
         ...state,
         loading: false,
         error: payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}
 
 export const channelVideosReducer = (
   state = {
@@ -201,28 +200,28 @@ export const channelVideosReducer = (
   },
   action
 ) => {
-  const { payload, type } = action;
+  const { payload, type } = action
 
   switch (type) {
     case CHANNEL_VIDEOS_REQUEST:
       return {
         ...state,
         loading: true,
-      };
+      }
     case CHANNEL_VIDEOS_SUCCESS:
       return {
         ...state,
         videos: payload,
         loading: false,
-      };
+      }
     case CHANNEL_VIDEOS_FAIL:
       return {
         ...state,
         loading: false,
         error: payload,
-      };
+      }
 
     default:
-      return state;
+      return state
   }
-};
+}

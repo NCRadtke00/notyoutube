@@ -10,19 +10,19 @@ import { getVideosByChannel } from "../../redux/actions/videos.action";
 import "./channelScreen.scss";
 
 const ChannelScreen = () => {
-  const { channelId } = useParams();
+  const { channelId } = useParams()
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getVideosByChannel(channelId));
-    dispatch(getChannelDetails(channelId));
-  }, [dispatch, channelId]);
+    dispatch(getVideosByChannel(channelId))
+    dispatch(getChannelDetails(channelId))
+  }, [dispatch, channelId])
 
-  const { videos, loading } = useSelector((state) => state.channelVideos);
+  const { videos, loading } = useSelector(state => state.channelVideos)
   const { snippet, statistics } = useSelector(
-    (state) => state.channelDetails.channel
-  );
+    state => state.channelDetails.channel
+  )
 
   return (
     <>
@@ -44,17 +44,17 @@ const ChannelScreen = () => {
         <Row className="mt-2">
           {!loading
             ? videos?.map((video) => (
-                <Col md={3} lg={3}>
-                  <Video video={video} channelScreen />
-                </Col>
-              ))
+              <Col md={3} lg={3}>
+                <Video video={video} channelScreen />
+              </Col>
+            ))
             : [...Array(15)].map(() => (
-                <Col md={3} lg={3}>
-                  <SkeletonTheme color="#343a40" highlightColor="#3c4147">
-                    <Skeleton width="100%" height="140px" />
-                  </SkeletonTheme>
-                </Col>
-              ))}
+              <Col md={3} lg={3}>
+                <SkeletonTheme color="#343a40" highlightColor="#3c4147">
+                  <Skeleton width="100%" height="140px" />
+                </SkeletonTheme>
+              </Col>
+            ))}
         </Row>
       </Container>
     </>

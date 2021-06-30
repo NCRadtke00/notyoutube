@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
 import { Redirect, Route, Switch, useHistory } from "react-router-dom";
+import { Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
 };
 
 const App = () => {
-  const { accessToken, loading } = useSelector((state) => state.auth);
+  const { accessToken, loading } = useSelector(state => state.auth);
 
   const history = useHistory();
 

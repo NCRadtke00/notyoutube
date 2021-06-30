@@ -15,7 +15,7 @@ const SearchScreen = () => {
     dispatch(getVideosBySearch(query));
   }, [query, dispatch]);
 
-  const { videos, loading } = useSelector((state) => state.searchedVideos);
+  const { videos, loading } = useSelector(state => state.searchedVideos);
 
   return (
     <Container>

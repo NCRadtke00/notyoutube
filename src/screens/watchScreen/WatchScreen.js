@@ -7,25 +7,19 @@ import Comments from "../../components/comments/Comments";
 import VideoHorizontal from "../../components/videoHorizontal/VideoHorizontal";
 import VideoMetaData from "../../components/videoMetaData/VideoMetaData";
 import { Helmet } from "react-helmet";
-import {
-  getRelatedVideos,
-  getVideoById,
-} from "../../redux/actions/videos.action";
+import { getRelatedVideos, getVideoById } from "../../redux/actions/videos.action";
 import "./watchScreen.scss";
 
 const WatchScreen = () => {
-  const { id } = useParams();
-
-  const dispatch = useDispatch();
-
+  const { id } = useParams()
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getVideoById(id));
-
-    dispatch(getRelatedVideos(id));
+    dispatch(getVideoById(id))
+    dispatch(getRelatedVideos(id))
   }, [dispatch, id]);
 
   const { videos, loading: relatedVideosLoading } = useSelector(
-    (state) => state.relatedVideos
+    state => state.relatedVideos
   );
 
   const { video, loading } = useSelector((state) => state.selectedVideo);
