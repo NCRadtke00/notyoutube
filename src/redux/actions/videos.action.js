@@ -18,7 +18,6 @@ import {
   SUBSCRIPTIONS_CHANNEL_REQUEST,
   SUBSCRIPTIONS_CHANNEL_SUCCESS,
 } from '../actionType'
-
 import request from '../../api'
 
 export const getPopularVideos = () => async (dispatch, getState) => {
@@ -35,7 +34,6 @@ export const getPopularVideos = () => async (dispatch, getState) => {
         pageToken: getState().homeVideos.nextPageToken,
       },
     })
-
     dispatch({
       type: HOME_VIDEOS_SUCCESS,
       payload: {
@@ -89,7 +87,6 @@ export const getVideoById = id => async dispatch => {
     dispatch({
       type: SELECTED_VIDEO_REQUEST,
     })
-
     const { data } = await request('/videos', {
       params: {
         part: 'snippet,statistics',
@@ -114,7 +111,6 @@ export const getRelatedVideos = id => async dispatch => {
     dispatch({
       type: RELATED_VIDEO_REQUEST,
     })
-
     const { data } = await request('/search', {
       params: {
         part: 'snippet',
@@ -144,13 +140,11 @@ export const getVideosBySearch = keyword => async dispatch => {
     const { data } = await request('/search', {
       params: {
         part: 'snippet',
-
         maxResults: 20,
         q: keyword,
         type: 'video,channel',
       },
     })
-
     dispatch({
       type: SEARCHED_VIDEO_SUCCESS,
       payload: data.items,

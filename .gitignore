@@ -350,11 +350,7 @@ MigrationBackup/
 .ionide/
 
 .env
-
 firebase.js
-
+build\static\js
 api.js
- .env
- firebase.js
- api.js
- build\static\js
+

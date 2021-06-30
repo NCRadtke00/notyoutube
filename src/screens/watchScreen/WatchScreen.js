@@ -61,7 +61,7 @@ const WatchScreen = () => {
         )}
       </Col>
     </Row>
-  );
-};
+  )
+}
 
 export default WatchScreen;

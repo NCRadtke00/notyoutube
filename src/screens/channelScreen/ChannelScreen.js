@@ -11,14 +11,11 @@ import "./channelScreen.scss";
 
 const ChannelScreen = () => {
   const { channelId } = useParams()
-
   const dispatch = useDispatch()
-
   useEffect(() => {
     dispatch(getVideosByChannel(channelId))
     dispatch(getChannelDetails(channelId))
   }, [dispatch, channelId])
-
   const { videos, loading } = useSelector(state => state.channelVideos)
   const { snippet, statistics } = useSelector(
     state => state.channelDetails.channel
@@ -37,7 +34,6 @@ const ChannelScreen = () => {
             </span>
           </div>
         </div>
-
         <button>Subscribe</button>
       </div>
       <Container>

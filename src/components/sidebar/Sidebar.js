@@ -30,7 +30,7 @@ const Sidebar = ({ sidebar, handleToggleSidebar }) => {
           <span>Home</span>
         </li>
       </Link>
-      <Link to="/">
+      <Link to="/feed/explore">
         <li>
           <MdExplore esize={23} />
 
