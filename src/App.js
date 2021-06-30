@@ -14,9 +14,7 @@ import "./_app.scss";
 
 const Layout = ({ children }) => {
   const [sidebar, toggleSidebar] = useState(false);
-
   const handleToggleSidebar = () => toggleSidebar((value) => !value);
-
   return (
     <>
       <Header handleToggle={handleToggleSidebar} />
@@ -31,16 +29,13 @@ const Layout = ({ children }) => {
 };
 
 const App = () => {
-  const { accessToken, loading } = useSelector(state => state.auth);
-
-  const history = useHistory();
-
+  const { accessToken, loading } = useSelector(state => state.auth)
+  const history = useHistory()
   useEffect(() => {
     if (!loading && !accessToken) {
       history.push("/auth");
     }
-  }, [accessToken, loading, history]);
-
+  }, [accessToken, loading, history])
   return (
     <Switch>
       <Route path="/" exact>
@@ -48,11 +43,9 @@ const App = () => {
           <HomeScreen />
         </Layout>
       </Route>
-
       <Route path="/auth">
         <LoginScreen />
       </Route>
-
       <Route path="/search/:query">
         <Layout>
           <SearchScreen />
@@ -63,7 +56,6 @@ const App = () => {
           <WatchScreen />
         </Layout>
       </Route>
-
       <Route path="/feed/subscriptions">
         <Layout>
           <SubscriptionsScreen />
@@ -74,12 +66,11 @@ const App = () => {
           <ChannelScreen />
         </Layout>
       </Route>
-
       <Route>
         <Redirect to="/" />
       </Route>
     </Switch>
-  );
-};
+  )
+}
 
 export default App;

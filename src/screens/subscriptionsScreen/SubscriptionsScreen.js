@@ -7,14 +7,11 @@ import { getSubscribedChannels } from "../../redux/actions/videos.action";
 import "./subscriptions.scss";
 
 const SubscriptionsScreen = () => {
-  const dispatch = useDispatch();
-
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getSubscribedChannels());
-  }, [dispatch]);
-
-  const { loading, videos } = useSelector(state => state.subscriptionsChannel);
-
+    dispatch(getSubscribedChannels())
+  }, [dispatch])
+  const { loading, videos } = useSelector(state => state.subscriptionsChannel)
   return (
     <Container fluid>
       {!loading ? (
@@ -27,7 +24,7 @@ const SubscriptionsScreen = () => {
         </SkeletonTheme>
       )}
     </Container>
-  );
-};
+  )
+}
 
 export default SubscriptionsScreen;

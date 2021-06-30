@@ -23,7 +23,6 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
   } = video;
 
   const isVideo = !(id.kind === "youtube#channel" || subScreen);
-
   const [views, setViews] = useState(null);
   const [duration, setDuration] = useState(null);
   const [channelIcon, setChannelIcon] = useState(null);
@@ -61,11 +60,9 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
 
   const seconds = moment.duration(duration).asSeconds();
   const _duration = moment.utc(seconds * 1000).format("mm:ss");
-
   const history = useHistory();
 
   const _channelId = resourceId?.channelId || channelId;
-  //line about fixes inconsistance of youtube api
   const handleClick = () => {
     isVideo
       ? history.push(`/watch/${id.videoId}`)
@@ -79,7 +76,6 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
       className="py-2 m-1 videoHorizontal align-items-center"
       onClick={handleClick}
     >
-      {/* //TODO refractor grid */}
       <Col
         xs={6}
         md={searchScreen || subScreen ? 4 : 6}
@@ -108,11 +104,9 @@ const VideoHorizontal = ({ video, searchScreen, subScreen }) => {
             {moment(publishedAt).fromNow()}
           </div>
         )}
-
         {(searchScreen || subScreen) && (
           <p className="mt-1 videoHorizontal__desc">{description}</p>
         )}
-
         <div className="my-1 videoHorizontal__channel d-flex align-items-center">
           {isVideo && <LazyLoadImage src={channelIcon?.url} effect="blur" />}
           <p className="mb-0">{channelTitle}</p>

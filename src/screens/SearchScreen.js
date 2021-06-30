@@ -7,16 +7,12 @@ import { getVideosBySearch } from "../redux/actions/videos.action";
 import VideoHorizontal from "../components/videoHorizontal/VideoHorizontal";
 
 const SearchScreen = () => {
-  const { query } = useParams();
-
-  const dispatch = useDispatch();
-
+  const { query } = useParams()
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getVideosBySearch(query));
-  }, [query, dispatch]);
-
-  const { videos, loading } = useSelector(state => state.searchedVideos);
-
+    dispatch(getVideosBySearch(query))
+  }, [query, dispatch])
+  const { videos, loading } = useSelector(state => state.searchedVideos)
   return (
     <Container>
       {!loading ? (
@@ -29,7 +25,7 @@ const SearchScreen = () => {
         </SkeletonTheme>
       )}
     </Container>
-  );
-};
+  )
+}
 
 export default SearchScreen;

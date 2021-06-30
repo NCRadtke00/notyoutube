@@ -16,14 +16,11 @@ const WatchScreen = () => {
   useEffect(() => {
     dispatch(getVideoById(id))
     dispatch(getRelatedVideos(id))
-  }, [dispatch, id]);
-
+  }, [dispatch, id])
   const { videos, loading: relatedVideosLoading } = useSelector(
     state => state.relatedVideos
-  );
-
-  const { video, loading } = useSelector((state) => state.selectedVideo);
-
+  )
+  const { video, loading } = useSelector((state) => state.selectedVideo)
   return (
     <Row>
       <Helmet>
@@ -45,7 +42,6 @@ const WatchScreen = () => {
         ) : (
           <h6>Loading...</h6>
         )}
-
         <Comments
           videoId={id}
           totalComments={video?.statistics?.commentCount}

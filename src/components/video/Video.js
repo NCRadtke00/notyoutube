@@ -18,18 +18,15 @@ const Video = ({ video, channelScreen }) => {
       thumbnails: { medium },
     },
     contentDetails,
-  } = video;
+  } = video
 
-  const [views, setViews] = useState(null);
-  const [duration, setDuration] = useState(null);
-  const [channelIcon, setChannelIcon] = useState(null);
-
-  const seconds = moment.duration(duration).asSeconds();
-  const _duration = moment.utc(seconds * 1000).format("mm:ss");
-
-  const _videoId = id?.videoId || contentDetails?.videoId || id;
-
-  const history = useHistory();
+  const [views, setViews] = useState(null)
+  const [duration, setDuration] = useState(null)
+  const [channelIcon, setChannelIcon] = useState(null)
+  const seconds = moment.duration(duration).asSeconds()
+  const _duration = moment.utc(seconds * 1000).format("mm:ss")
+  const _videoId = id?.videoId || contentDetails?.videoId || id
+  const history = useHistory()
 
   useEffect(() => {
     const get_video_details = async () => {
@@ -40,12 +37,12 @@ const Video = ({ video, channelScreen }) => {
           part: "contentDetails,statistics",
           id: _videoId,
         },
-      });
+      })
       setDuration(items[0].contentDetails.duration);
       setViews(items[0].statistics.viewCount);
-    };
-    get_video_details();
-  }, [_videoId]);
+    }
+    get_video_details()
+  }, [_videoId])
 
   useEffect(() => {
     const get_channel_icon = async () => {
@@ -56,15 +53,15 @@ const Video = ({ video, channelScreen }) => {
           part: "snippet",
           id: channelId,
         },
-      });
-      setChannelIcon(items[0].snippet.thumbnails.default);
-    };
-    get_channel_icon();
-  }, [channelId]);
+      })
+      setChannelIcon(items[0].snippet.thumbnails.default)
+    }
+    get_channel_icon()
+  }, [channelId])
 
   const handleVideoClick = () => {
-    history.push(`/watch/${_videoId}`);
-  };
+    history.push(`/watch/${_videoId}`)
+  }
 
   return (
     <div className="video" onClick={handleVideoClick}>
@@ -88,7 +85,7 @@ const Video = ({ video, channelScreen }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default Video;
