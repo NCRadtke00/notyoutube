@@ -354,3 +354,7 @@ MigrationBackup/
 firebase.js
 
 api.js
+ .env
+ firebase.js
+ api.js
+ build\static\js
