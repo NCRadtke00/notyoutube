@@ -1,6 +1,6 @@
 # notyoutube
 Hosted on Firebase @ https://ncr-ytc.web.app
-youtube clone: React, Redux, Firebase, YoutubeAPI, SasS, Node
+youtube clone: React, Redux, Firebase, YoutubeAPI, Sass, Node
 
 **On the sidebar Home, Explore and Subscriptions are working. Library, History, Watch Later, and Liked screens are still WIP.
 ![NRnotYoutube loginscreen](https://user-images.githubusercontent.com/65512131/124034185-8435d200-d9c0-11eb-9cea-4a284d63bf1b.png)
