@@ -1,5 +1,5 @@
-# notyoutube
-#Hosted
+## Youtube Clone
+# Hosted
 - on Firebase @ https://ncr-ytc.web.app
 
 # Technology
