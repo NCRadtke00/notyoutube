@@ -11,13 +11,13 @@
 - SCSS
 - 
 # How to set up project
--First clone this repository to your desktop. 
--Next open project in command prompt or terminal, once project is open run either yarn install or npm install to install the dependencies of the project.
--Once dependencies are installed, run npm run dev or yarn dev.
+>First clone this repository to your desktop. 
+>Next open project in command prompt or terminal, once project is open run either yarn install or npm install to install the dependencies of the project.
+>Once dependencies are installed, run npm run dev or yarn dev.
 
->You will likely hit an issue as I have the Keys for my project hidden.
-> You will need to add a file .env.local and get your own cd-keys for the project.
-> Otherwise you can check out the working project at the link above.
+>> You will likely hit an issue as I have the Keys for my project hidden.
+>> You will need to add a file .env.local and get your own cd-keys for the project.
+>> Otherwise you can check out the working project at the link above.
 
 ![NRnotYoutube loginscreen](https://user-images.githubusercontent.com/65512131/124034185-8435d200-d9c0-11eb-9cea-4a284d63bf1b.png)
 ![homescreen](https://user-images.githubusercontent.com/65512131/123899300-88181480-d92c-11eb-914d-1bccffd6051b.png)
